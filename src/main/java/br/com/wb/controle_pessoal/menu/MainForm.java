@@ -1,0 +1,30 @@
+package br.com.wb.controle_pessoal.menu;
+
+import java.awt.BorderLayout;
+import java.awt.Component;
+import javax.swing.JPanel;
+
+public class MainForm extends JPanel {
+
+    private static final long serialVersionUID = 1L;
+    
+	public static MainForm main;
+
+    public MainForm() {
+        setLayout(new BorderLayout());
+        main = this;
+    }
+
+    public void displayForm(Component component) {
+        if (main != null) {
+            main.removeAll();
+            main.add(component);
+            main.revalidate();
+            main.repaint();
+        }
+    }
+
+    public static MainForm getInstance() {
+        return main;
+    }
+}
